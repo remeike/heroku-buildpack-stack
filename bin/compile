@@ -44,7 +44,7 @@ function set-default-env (){
   echo "export $1=\${$1:-$2}" >> "$PROFILE_PATH"
 }
 
-export LANG=en_US.UTF-8
+export LANG=C.UTF-8
 export LIBRARY_PATH=$WORK_DIR/vendor/ghc-libs:$WORK_DIR/vendor/lib:/usr/lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=$LIBRARY_PATH
 export PATH=$WORK_DIR/.local/bin:$WORK_DIR/vendor/bin:$PATH
