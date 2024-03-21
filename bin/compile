@@ -98,6 +98,9 @@ cd "$WORK_DIR"
 speak "DEBUG PATH"
 echo $PATH
 cp -r "$BUILD_DIR/vendor/libwebp/bin/." "$WORK_DIR/vendor/bin"
+cp -r "$BUILD_DIR/vendor/libwebp/bin/." "/usr/local/bin"
+cp -r "$BUILD_DIR/vendor/libwebp/bin/." "/usr/bin"
+cp -r "$BUILD_DIR/vendor/libwebp/bin/." "/bin"
 webpinfo -version
 
 # Makefile support (if you need other build tools than Stack that you need to use in conjunction)
