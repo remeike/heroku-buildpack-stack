@@ -104,8 +104,8 @@ else
     speak "DEBUGGING OUT"
     echo $PATH
     webpinfo -version
-    export PKG_CONFIG_PATH=$BUILD_DIR/vendor/libwebp:$PKG_CONFIG_PATH
     pkg-config --list-all | grep libwebp
+    echo "Got list?"
     pkg-config --modversion libwebp
     stack setup
     stack build -j1 --copy-bins
