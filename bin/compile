@@ -15,6 +15,7 @@ function speak (){
 
 speak "DEBUG PATH 1"
 echo $PATH
+webpinfo -version
 
 speak "Starting..."
 
