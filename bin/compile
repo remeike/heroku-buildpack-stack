@@ -51,16 +51,16 @@ export PATH=$WORK_DIR/.local/bin:$WORK_DIR/vendor/bin:$PATH
 export STACK_ROOT=$CACHE_DIR/.stack
 
 ########## gmp #####################################################
-LIBGMP_VER=${LIBGMP_VER:-6.0.0a}
-LIBGMP_URL=${LIBGMP_URL:-https://s3.amazonaws.com/heroku-ghc/heroku-libgmp-"$LIBGMP_VER".tar.gz}
-LIBGMP_DIR="$CACHE_DIR/libgmp-$LIBGMP_VER"
-if [ ! -e "$LIBGMP_DIR" ]; then
-  speak "Installing libgmp-$LIBGMP_VER into cache"
-  mkdir -p "$LIBGMP_DIR"
-  curl -# -L "$LIBGMP_URL" | tar xz -C "$LIBGMP_DIR"
-fi
-speak "Restoring $LIBGMP_VER files from cache"
-cp -Rp "$LIBGMP_DIR/ghc-libs/." "$WORK_DIR/vendor/ghc-libs"
+# LIBGMP_VER=${LIBGMP_VER:-6.0.0a}
+# LIBGMP_URL=${LIBGMP_URL:-https://s3.amazonaws.com/heroku-ghc/heroku-libgmp-"$LIBGMP_VER".tar.gz}
+# LIBGMP_DIR="$CACHE_DIR/libgmp-$LIBGMP_VER"
+# if [ ! -e "$LIBGMP_DIR" ]; then
+#   speak "Installing libgmp-$LIBGMP_VER into cache"
+#   mkdir -p "$LIBGMP_DIR"
+#   curl -# -L "$LIBGMP_URL" | tar xz -C "$LIBGMP_DIR"
+# fi
+# speak "Restoring $LIBGMP_VER files from cache"
+# cp -Rp "$LIBGMP_DIR/ghc-libs/." "$WORK_DIR/vendor/ghc-libs"
 
 ########## stack exe ###############################################
 
@@ -104,6 +104,7 @@ else
     speak "DEBUG PATH"
     echo $PATH
     cp -Rp "$BUILD_DIR/vendor/libwebp/bin/." "$WORK_DIR/vendor/ghc-libs"
+    ls "$WORK_DIR/vendor/ghc-libs"
     webpinfo -version
     stack setup
     stack build -j1 --copy-bins
