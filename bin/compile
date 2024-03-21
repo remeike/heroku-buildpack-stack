@@ -104,7 +104,7 @@ else
     speak "DEBUGGING OUT"
     echo $PATH
     webpinfo -version
-    pkg-config --list-all | grep libwebp
+    pkg-config --list-all
     echo "Got list?"
     pkg-config --modversion libwebp
     stack setup
