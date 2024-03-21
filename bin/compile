@@ -62,7 +62,8 @@ fi
 speak "Restoring $LIBGMP_VER files from cache"
 cp -Rp "$LIBGMP_DIR/ghc-libs/." "$WORK_DIR/vendor/ghc-libs"
 
-cp "$BUILD_DIR/vendor/libwebp" "$WORK_DIR/vendor/ghc-libs"
+speak "Making libwebp accessible to ghc library"
+cp -r "$BUILD_DIR/vendor/libwebp" "$WORK_DIR/vendor/ghc-libs"
 
 ########## stack exe ###############################################
 STACK_VER=${STACK_VER:-2.11.1}
