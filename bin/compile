@@ -13,6 +13,9 @@ function speak (){
   echo "-----> $(date -u '+%Y-%m-%d_%H:%M:%S') $1"
 }
 
+speak "DEBUG PATH 1"
+echo $PATH
+
 speak "Starting..."
 
 BLACKLIST_REGEX="^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$"
@@ -49,6 +52,9 @@ export LIBRARY_PATH=$WORK_DIR/vendor/ghc-libs:$WORK_DIR/vendor/lib:/usr/lib:$LIB
 export LD_LIBRARY_PATH=$LIBRARY_PATH
 export PATH=$WORK_DIR/.local/bin:$WORK_DIR/vendor/bin:$PATH
 export STACK_ROOT=$CACHE_DIR/.stack
+
+speak "DEBUG PATH 2"
+echo $PATH
 
 ########## gmp #####################################################
 LIBGMP_VER=${LIBGMP_VER:-6.0.0a}
