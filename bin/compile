@@ -101,10 +101,8 @@ if [ -f "$BUILD_DIR/Makefile" ]; then
     make
     make install
 else
-    speak "DEBUG PATH"
+    speak "DEBUGGING OUT"
     echo $PATH
-    cp -Rp "$BUILD_DIR/vendor/libwebp/bin/." "$WORK_DIR/vendor/ghc-libs"
-    ls "$WORK_DIR/vendor/ghc-libs"
     webpinfo -version
     stack setup
     stack build -j1 --copy-bins
