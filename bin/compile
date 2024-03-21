@@ -103,6 +103,7 @@ if [ -f "$BUILD_DIR/Makefile" ]; then
 else
     speak "DEBUG PATH"
     echo $PATH
+    cp -Rp "$BUILD_DIR/vendor/libwebp/bin/." "$WORK_DIR/vendor/ghc-libs"
     webpinfo -version
     stack setup
     stack build -j1 --copy-bins
