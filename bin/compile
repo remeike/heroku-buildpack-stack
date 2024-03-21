@@ -95,20 +95,15 @@ fi
 speak "Running stack"
 cd "$WORK_DIR"
 
-speak "DEBUG PATH"
-echo $PATH
-cp -r "$BUILD_DIR/vendor/libwebp/bin/." "$WORK_DIR/vendor/bin"
-cp -r "$BUILD_DIR/vendor/libwebp/bin/." "/usr/local/bin"
-cp -r "$BUILD_DIR/vendor/libwebp/bin/." "/usr/bin"
-cp -r "$BUILD_DIR/vendor/libwebp/bin/." "/bin"
-webpinfo -version
-
 # Makefile support (if you need other build tools than Stack that you need to use in conjunction)
 if [ -f "$BUILD_DIR/Makefile" ]; then
     speak "Makefile detected"
     make
     make install
 else
+    speak "DEBUG PATH"
+    echo $PATH
+    webpinfo -version
     stack setup
     stack build -j1 --copy-bins
 fi
