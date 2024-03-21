@@ -50,6 +50,12 @@ export LD_LIBRARY_PATH=$LIBRARY_PATH
 export PATH=$WORK_DIR/.local/bin:$WORK_DIR/vendor/bin:$PATH
 export STACK_ROOT=$CACHE_DIR/.stack
 
+speak "DEBUGGING OUT"
+echo $PATH
+webpinfo -version
+speak "Look for libwebp in pkg-config"
+pkg-config --modversion libwebp
+
 ########## gmp #####################################################
 # LIBGMP_VER=${LIBGMP_VER:-6.0.0a}
 # LIBGMP_URL=${LIBGMP_URL:-https://s3.amazonaws.com/heroku-ghc/heroku-libgmp-"$LIBGMP_VER".tar.gz}
@@ -101,13 +107,6 @@ if [ -f "$BUILD_DIR/Makefile" ]; then
     make
     make install
 else
-    speak "DEBUGGING OUT"
-    echo $PATH
-    webpinfo -version
-    speak "Check PKG_CONFIG_PATH"
-    echo $PKG_CONFIG_PATH
-    speak "Look for libwebp in pkg-config"
-    pkg-config --modversion libwebp
     stack setup
     stack build -j1 --copy-bins
 fi
