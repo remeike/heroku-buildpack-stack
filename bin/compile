@@ -54,6 +54,8 @@ speak "DEBUGGING OUT"
 echo $PATH
 webpinfo -version
 speak "Look for libwebp in pkg-config"
+pkg-config --list-all
+pkg-config --modversion webp
 pkg-config --modversion libwebp
 
 ########## gmp #####################################################
